@@ -1,0 +1,22 @@
+name: RPG
+version: 0.1
+author: Tempoo50
+main: de.tempoo50.rpg.main.Rpg
+
+commands:
+   cow:
+      description:
+   pig:
+      description:
+   witch:
+      description:
+   zombie:
+      description:
+   skelett:
+      description:
+   spider:
+      description:
+   giant:
+      description:
+   villager:
+      description:

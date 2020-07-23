@@ -313,7 +313,7 @@ public class ShopManager {
 		axemeta9.addEnchant(Enchantment.DAMAGE_ALL, 5, true);
 		axemeta9.addEnchant(Enchantment.KNOCKBACK, 1, true);
 		axemeta9.addEnchant(Enchantment.FIRE_ASPECT, 3, true);
-		axemeta.addEnchant(Enchantment.DURABILITY, 900, true);
+		axemeta9.addEnchant(Enchantment.DURABILITY, 900, true);
 		axe9.setItemMeta(axemeta9);
 		
 		axeInv.setItem(0, axe);
@@ -508,7 +508,7 @@ public class ShopManager {
 		
 		ItemStack spezial2 = new ItemStack(Material.GOLD_NUGGET);//64 ib
 		ItemMeta spezialmeta2 = spezial2.getItemMeta();
-		spezialmeta.setDisplayName(ItemUtil.SPEZIAL3);
+		spezialmeta2.setDisplayName(ItemUtil.SPEZIAL3);
 		spezial2.setItemMeta(spezialmeta2);
 		
 		ItemStack spezial3 = new ItemStack(Material.GOLD_INGOT);//64 gn

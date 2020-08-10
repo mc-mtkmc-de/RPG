@@ -19,6 +19,16 @@ public class MobNamefile {
 		config.addDefault("Skelett", "Skelett");
 		config.addDefault("Spider", "Spider");
 		config.addDefault("Giant", "Giant");
+		config.addDefault("Villager", "Villager");
+		config.addDefault("Evoker", "Evoker");
+		config.addDefault("Slime", "Slime");
+		config.addDefault("Creeper", "Creeper");
+		config.addDefault("Illusioner", "Illusioner");
+		config.addDefault("Wither", "Wither");
+		config.addDefault("WitherSkelett", "WitherSkelett");
+		config.addDefault("Vindicator", "Vindicator");
+		config.addDefault("Vex", "Vex");
+		config.addDefault("Stray", "Stray");
 		
 		config.options().copyDefaults(true);
 		

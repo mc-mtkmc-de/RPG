@@ -11,6 +11,7 @@ public class KillChicken implements Listener {
 	public void cowDeath(EntityDeathEvent event) {
 
 		if(!(event.getEntity() instanceof Chicken)) return;
+		@SuppressWarnings("unused")
 		Chicken chi = (Chicken) event.getEntity();
 		
 		event.getDrops().clear();

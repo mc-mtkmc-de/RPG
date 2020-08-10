@@ -19,6 +19,14 @@ public class RespawnFile {
 		config.addDefault("Respawn.Skelett", 180);
 		config.addDefault("Respawn.Spider", 60);
 		config.addDefault("Respawn.Giant", 60);
+		config.addDefault("Respawn.Evoker", 60);
+		config.addDefault("Respawn.Slime", 60);
+		config.addDefault("Respawn.Creeper", 60);
+		config.addDefault("Respawn.Illusioner", 60);
+		config.addDefault("Respawn.Whither", 200);
+		config.addDefault("Respawn.Vindicator", 60);
+		config.addDefault("Respawn.Vex", 60);
+		config.addDefault("Respawn.Stray", 60);
 		
 		config.options().copyDefaults(true);
 		

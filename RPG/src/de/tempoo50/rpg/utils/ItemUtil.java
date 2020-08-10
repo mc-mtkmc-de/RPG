@@ -11,7 +11,7 @@ public class ItemUtil {
 	
 	public static final String BOW = (String) config.get("Main.Bow");
 	public static final String SWORD = (String) config.get("Main.Sword");
-	public static final String AXE = (String) config.get("Main.AXE");
+	public static final String AXE = (String) config.get("Main.Axe");
 	public static final String ARMOR = (String) config.get("Main.Armor");
 	public static final String SPEZIAL = (String) config.get("Main.Spezial");
 	public static final String SHIELD = (String) config.get("Main.Shield");
@@ -55,17 +55,20 @@ public class ItemUtil {
 	public static final String SHIELD8 = (String) config.get("Shield.8");
 	public static final String SHIELD9 = (String) config.get("Shield.9");
 	public static final String SHIELD10 = (String) config.get("Shield.10");
-	public static final String ARMOR1 = (String) config.get("Armor1,0");
-	public static final String ARMOR2 = (String) config.get("Armor1,1");
-	public static final String ARMOR3 = (String) config.get("Armor1,2");
-	public static final String ARMOR4 = (String) config.get("Armor1,3");
-	public static final String ARMOR5 = (String) config.get("Armor2,0");
-	public static final String ARMOR6 = (String) config.get("Armor2,1");
-	public static final String ARMOR7 = (String) config.get("Armor2,2");
-	public static final String ARMOR8 = (String) config.get("Armor2,3");
-	public static final String SPEZIAL1 = (String) config.get("Spezial1");
-	public static final String SPEZIAL2 = (String) config.get("Spezial2");
-	public static final String SPEZIAL3 = (String) config.get("Spezial3");
-	public static final String SPEZIAL4 = (String) config.get("Spezial4");
+	public static final String ARMOR1 = (String) config.get("Armor.1,0");
+	public static final String ARMOR2 = (String) config.get("Armor.1,1");
+	public static final String ARMOR3 = (String) config.get("Armor.1,2");
+	public static final String ARMOR4 = (String) config.get("Armor.1,3");
+	public static final String ARMOR5 = (String) config.get("Armor.2,0");
+	public static final String ARMOR6 = (String) config.get("Armor.2,1");
+	public static final String ARMOR7 = (String) config.get("Armor.2,2");
+	public static final String ARMOR8 = (String) config.get("Armor.2,3");
+	public static final String SPEZIAL1 = (String) config.get("Spezial.1");
+	public static final String SPEZIAL2 = (String) config.get("Spezial.2");
+	public static final String SPEZIAL3 = (String) config.get("Spezial.3");
+	public static final String SPEZIAL4 = (String) config.get("Spezial.4");
+	public static final String MONEY = (String) config.get("Money");
+	public static final String BACK = (String) config.get("Back");
+	public static final String ARROW = (String) config.get("Bow.Arrow");
 
 }

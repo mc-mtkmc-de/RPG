@@ -16,36 +16,35 @@ public class ShopInteract implements Listener {
 	
 	@EventHandler
 	public void openShop(InventoryClickEvent event) {
-		try {
 			
 			Player player = (Player) event.getWhoClicked();
-			if(event.getInventory() == ShopManager.ShopInv || event.getInventory() == ShopManager.ArmorInv || event.getInventory() == ShopManager.AxeInv || event.getInventory() == ShopManager.BowInv || event.getInventory() == ShopManager.SwordInv || event.getInventory() == ShopManager.ShieldInv || event.getInventory() == ShopManager.SpezialInv) {
-				
-				if(event.getInventory() == ShopManager.ShopInv) {
+			if(event.getInventory().getName().equalsIgnoreCase("§aShop") || event.getInventory().getName().equalsIgnoreCase("§aBögen") || event.getInventory().getName().equalsIgnoreCase("§aSchwerter") || event.getInventory().getName().equalsIgnoreCase("§aÄxte") || event.getInventory().getName().equalsIgnoreCase("§aRüstungen") || event.getInventory().getName().equalsIgnoreCase("§aSchilde") || event.getInventory().getName().equalsIgnoreCase("§aSpezial")) {			
+				if(event.getInventory().getName().equalsIgnoreCase("§aShop")) {
+					event.setCancelled(true);
 					
-					if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ItemUtil.BOW)) {
-						ShopManager.openBowInv(player);
-					}else if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ItemUtil.SWORD)) {
-						ShopManager.openSwordInv(player);
-					}else if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ItemUtil.AXE)) {
+					if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ItemUtil.AXE)) {
 						ShopManager.openAxeInv(player);
 					}else if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ItemUtil.ARMOR)) {
 						ShopManager.openarmorinv(player);
 					}else if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ItemUtil.SHIELD)) {
 						ShopManager.openShieldInv(player);
-					}else if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ItemUtil.SPEZIAL)) {
+					}if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ItemUtil.SPEZIAL)) {
 						ShopManager.openspezialInv(player);
+					}else if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ItemUtil.SWORD)) {
+						ShopManager.openSwordInv(player);
+					}else if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ItemUtil.BOW)) {
+						ShopManager.openBowInv(player);
 					}
 					
-				}else if(event.getInventory() == ShopManager.BowInv) {
-					
+				}else if(event.getInventory().getName().equalsIgnoreCase("§aBögen")) {
+					event.setCancelled(true);
 					if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ItemUtil.BOW1)) {
-						event.setCancelled(true);
-						if(player.getInventory().contains(new ItemStack(Material.IRON_NUGGET, 20))) {
+						
+						if(player.getInventory().contains(Material.IRON_NUGGET, 20)) {
 							
 							int place = BestMaterial(player, Material.IRON_NUGGET);
 							
-							player.getInventory().getItem(place).setAmount(player.getInventory().getItem(place).getAmount() -1);
+							player.getInventory().getItem(place).setAmount(player.getInventory().getItem(place).getAmount() -20);
 							
 							ItemStack bow = new ItemStack(Material.BOW);
 							ItemMeta bowmeta = bow.getItemMeta();
@@ -54,6 +53,7 @@ public class ShopInteract implements Listener {
 							bow.setItemMeta(bowmeta);
 							
 							player.getInventory().addItem(bow);
+							player.getInventory().addItem(new ItemStack(Material.ARROW, 64));
 							player.updateInventory();
 							
 						}else 
@@ -61,11 +61,11 @@ public class ShopInteract implements Listener {
 						
 					}else if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ItemUtil.BOW2)) {
 							event.setCancelled(true);
-							if(player.getInventory().contains(new ItemStack(Material.IRON_NUGGET, 30))) {
+							if(player.getInventory().contains(Material.IRON_NUGGET, 30)) {
 								
 								int place = BestMaterial(player, Material.IRON_NUGGET);
 								
-								player.getInventory().getItem(place).setAmount(player.getInventory().getItem(place).getAmount() -1);
+								player.getInventory().getItem(place).setAmount(player.getInventory().getItem(place).getAmount() -30);
 								
 								ItemStack bow = new ItemStack(Material.BOW);
 								ItemMeta bowmeta = bow.getItemMeta();
@@ -81,11 +81,11 @@ public class ShopInteract implements Listener {
 							
 					}else if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ItemUtil.BOW3)) {
 						event.setCancelled(true);
-						if(player.getInventory().contains(new ItemStack(Material.IRON_NUGGET, 40))) {
+						if(player.getInventory().contains(Material.IRON_NUGGET, 40)) {
 							
 							int place = BestMaterial(player, Material.IRON_NUGGET);
 							
-							player.getInventory().getItem(place).setAmount(player.getInventory().getItem(place).getAmount() -1);
+							player.getInventory().getItem(place).setAmount(player.getInventory().getItem(place).getAmount() -40);
 							
 							ItemStack bow2 = new ItemStack(Material.BOW);//40 in
 							ItemMeta bowmeta2 = bow2.getItemMeta();
@@ -101,11 +101,11 @@ public class ShopInteract implements Listener {
 						
 					}else if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ItemUtil.BOW4)) {
 						event.setCancelled(true);
-						if(player.getInventory().contains(new ItemStack(Material.IRON_NUGGET, 50))) {
+						if(player.getInventory().contains(Material.IRON_NUGGET, 50)) {
 							
 							int place = BestMaterial(player, Material.IRON_NUGGET);
 							
-							player.getInventory().getItem(place).setAmount(player.getInventory().getItem(place).getAmount() -1);
+							player.getInventory().getItem(place).setAmount(player.getInventory().getItem(place).getAmount() -50);
 							
 							ItemStack bow3 = new ItemStack(Material.BOW);//50 in
 							ItemMeta bowmeta3 = bow3.getItemMeta();
@@ -121,11 +121,11 @@ public class ShopInteract implements Listener {
 						
 					}else if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ItemUtil.BOW5)) {
 						event.setCancelled(true);
-						if(player.getInventory().contains(new ItemStack(Material.IRON_NUGGET, 60))) {
+						if(player.getInventory().contains(Material.IRON_NUGGET, 60)) {
 							
 							int place = BestMaterial(player, Material.IRON_NUGGET);
 							
-							player.getInventory().getItem(place).setAmount(player.getInventory().getItem(place).getAmount() -1);
+							player.getInventory().getItem(place).setAmount(player.getInventory().getItem(place).getAmount() -60);
 							
 							ItemStack bow4 = new ItemStack(Material.BOW);//60 in
 							ItemMeta bowmeta4 = bow4.getItemMeta();
@@ -141,11 +141,11 @@ public class ShopInteract implements Listener {
 						
 					}else if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ItemUtil.BOW6)) {
 						event.setCancelled(true);
-						if(player.getInventory().contains(new ItemStack(Material.IRON_INGOT, 10))) {
+						if(player.getInventory().contains(Material.IRON_INGOT, 10)) {
 							
 							int place = BestMaterial(player, Material.IRON_INGOT);
 							
-							player.getInventory().getItem(place).setAmount(player.getInventory().getItem(place).getAmount() -1);
+							player.getInventory().getItem(place).setAmount(player.getInventory().getItem(place).getAmount() -10);
 							
 							ItemStack bow5 = new ItemStack(Material.BOW);//10 ib
 							ItemMeta bowmeta5 = bow5.getItemMeta();
@@ -162,11 +162,11 @@ public class ShopInteract implements Listener {
 						
 					}else if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ItemUtil.BOW7)) {
 						event.setCancelled(true);
-						if(player.getInventory().contains(new ItemStack(Material.IRON_INGOT, 50))) {
+						if(player.getInventory().contains(Material.IRON_INGOT, 50)) {
 							
 							int place = BestMaterial(player, Material.IRON_INGOT);
 							
-							player.getInventory().getItem(place).setAmount(player.getInventory().getItem(place).getAmount() -1);
+							player.getInventory().getItem(place).setAmount(player.getInventory().getItem(place).getAmount() -50);
 							
 							ItemStack bow6 = new ItemStack(Material.BOW);//50 ib
 							ItemMeta bowmeta6 = bow6.getItemMeta();
@@ -184,7 +184,7 @@ public class ShopInteract implements Listener {
 						
 					}else if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ItemUtil.BOW8)) {
 						event.setCancelled(true);
-						if(player.getInventory().contains(new ItemStack(Material.GOLD_NUGGET, 1))) {
+						if(player.getInventory().contains(Material.GOLD_NUGGET, 1)) {
 							
 							int place = BestMaterial(player, Material.GOLD_NUGGET);
 							
@@ -206,11 +206,11 @@ public class ShopInteract implements Listener {
 						
 					}else if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ItemUtil.BOW9)) {
 						event.setCancelled(true);
-						if(player.getInventory().contains(new ItemStack(Material.GOLD_NUGGET, 15))) {
+						if(player.getInventory().contains(Material.GOLD_NUGGET, 15)) {
 							
 							int place = BestMaterial(player, Material.GOLD_NUGGET);
 							
-							player.getInventory().getItem(place).setAmount(player.getInventory().getItem(place).getAmount() -1);
+							player.getInventory().getItem(place).setAmount(player.getInventory().getItem(place).getAmount() -15);
 							
 							ItemStack bow8 = new ItemStack(Material.BOW);//15 gn
 							ItemMeta bowmeta8 = bow8.getItemMeta();
@@ -227,12 +227,12 @@ public class ShopInteract implements Listener {
 							player.sendMessage("Du hast nicht genügent Geld dabei!");
 						
 					}else if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ItemUtil.BOW10)) {
-						event.setCancelled(true);
-						if(player.getInventory().contains(new ItemStack(Material.GOLD_INGOT, 64))) {
+						
+						if(player.getInventory().contains(Material.GOLD_INGOT, 64)) {
 							
 							int place = BestMaterial(player, Material.GOLD_INGOT);
 							
-							player.getInventory().getItem(place).setAmount(player.getInventory().getItem(place).getAmount() -1);
+							player.getInventory().getItem(place).setAmount(player.getInventory().getItem(place).getAmount() -64);
 							
 							ItemStack bow9 = new ItemStack(Material.BOW);//64 gb
 							ItemMeta bowmeta9 = bow9.getItemMeta();
@@ -250,18 +250,38 @@ public class ShopInteract implements Listener {
 						}else 
 							player.sendMessage("Du hast nicht genügent Geld dabei!");
 						
-					}
-					
-					
-				}else if(event.getInventory() == ShopManager.SwordInv) {
-					
-					if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ItemUtil.SWORD1)) {
-						event.setCancelled(true);
-						if(player.getInventory().contains(new ItemStack(Material.IRON_NUGGET, 20))) {
+					}else if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ItemUtil.BACK)) {
+						ShopManager.openShopInv(player);
+					}else if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ItemUtil.ARROW)) {
+						
+						if(player.getInventory().contains(Material.IRON_NUGGET, 5)) {
 							
 							int place = BestMaterial(player, Material.IRON_NUGGET);
 							
-							player.getInventory().getItem(place).setAmount(player.getInventory().getItem(place).getAmount() -1);
+							player.getInventory().getItem(place).setAmount(player.getInventory().getItem(place).getAmount() -5);
+							
+							ItemStack arrow = new ItemStack(Material.ARROW);
+							ItemMeta arrowmeta = arrow.getItemMeta();
+							arrowmeta.setDisplayName(ItemUtil.ARROW);
+							arrow.setItemMeta(arrowmeta);
+							
+							player.getInventory().addItem(arrow);
+							player.updateInventory();
+							
+						}else
+							player.sendMessage("Du hast nicht genügent Geld dabei!");
+					
+					}
+					
+				}else if(event.getInventory().getName().equalsIgnoreCase("§aSchwerter")) {
+					event.setCancelled(true);
+					if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ItemUtil.SWORD1)) {
+						event.setCancelled(true);
+						if(player.getInventory().contains(Material.IRON_NUGGET, 20)) {
+							
+							int place = BestMaterial(player, Material.IRON_NUGGET);
+							
+							player.getInventory().getItem(place).setAmount(player.getInventory().getItem(place).getAmount() -20);
 							
 							ItemStack sword = new ItemStack(Material.DIAMOND_SWORD);
 							ItemMeta swordmeta = sword.getItemMeta();
@@ -277,11 +297,11 @@ public class ShopInteract implements Listener {
 						
 					}else if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ItemUtil.SWORD2)) {
 						event.setCancelled(true);
-						if(player.getInventory().contains(new ItemStack(Material.IRON_NUGGET, 30))) {
+						if(player.getInventory().contains(Material.IRON_NUGGET, 30)) {
 							
 							int place = BestMaterial(player, Material.IRON_NUGGET);
 							
-							player.getInventory().getItem(place).setAmount(player.getInventory().getItem(place).getAmount() -1);
+							player.getInventory().getItem(place).setAmount(player.getInventory().getItem(place).getAmount() -30);
 							
 							ItemStack sword1 = new ItemStack(Material.DIAMOND_SWORD);
 							ItemMeta swordmeta1 = sword1.getItemMeta();
@@ -297,11 +317,11 @@ public class ShopInteract implements Listener {
 						
 					}else if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ItemUtil.SWORD3)) {
 						event.setCancelled(true);
-						if(player.getInventory().contains(new ItemStack(Material.IRON_NUGGET, 40))) {
+						if(player.getInventory().contains(Material.IRON_NUGGET, 40)) {
 							
 							int place = BestMaterial(player, Material.IRON_NUGGET);
 							
-							player.getInventory().getItem(place).setAmount(player.getInventory().getItem(place).getAmount() -1);
+							player.getInventory().getItem(place).setAmount(player.getInventory().getItem(place).getAmount() -40);
 							
 							ItemStack sword2 = new ItemStack(Material.DIAMOND_SWORD);
 							ItemMeta swordmeta2 = sword2.getItemMeta();
@@ -317,11 +337,11 @@ public class ShopInteract implements Listener {
 						
 					}else if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ItemUtil.SWORD4)) {
 						event.setCancelled(true);
-						if(player.getInventory().contains(new ItemStack(Material.IRON_NUGGET, 50))) {
+						if(player.getInventory().contains(Material.IRON_NUGGET, 50)) {
 							
 							int place = BestMaterial(player, Material.IRON_NUGGET);
 							
-							player.getInventory().getItem(place).setAmount(player.getInventory().getItem(place).getAmount() -1);
+							player.getInventory().getItem(place).setAmount(player.getInventory().getItem(place).getAmount() -50);
 							
 							ItemStack sword3 = new ItemStack(Material.DIAMOND_SWORD);
 							ItemMeta swordmeta3 = sword3.getItemMeta();
@@ -337,11 +357,11 @@ public class ShopInteract implements Listener {
 						
 					}else if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ItemUtil.SWORD5)) {
 						event.setCancelled(true);
-						if(player.getInventory().contains(new ItemStack(Material.IRON_NUGGET, 60))) {
+						if(player.getInventory().contains(Material.IRON_NUGGET, 60)) {
 							
 							int place = BestMaterial(player, Material.IRON_NUGGET);
 							
-							player.getInventory().getItem(place).setAmount(player.getInventory().getItem(place).getAmount() -1);
+							player.getInventory().getItem(place).setAmount(player.getInventory().getItem(place).getAmount() -60);
 							
 							ItemStack sword4 = new ItemStack(Material.DIAMOND_SWORD);
 							ItemMeta swordmeta4 = sword4.getItemMeta();
@@ -357,11 +377,11 @@ public class ShopInteract implements Listener {
 						
 					}else if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ItemUtil.SWORD6)) {
 						event.setCancelled(true);
-						if(player.getInventory().contains(new ItemStack(Material.IRON_INGOT, 10))) {
+						if(player.getInventory().contains(Material.IRON_INGOT, 10)) {
 							
 							int place = BestMaterial(player, Material.IRON_INGOT);
 							
-							player.getInventory().getItem(place).setAmount(player.getInventory().getItem(place).getAmount() -1);
+							player.getInventory().getItem(place).setAmount(player.getInventory().getItem(place).getAmount() -10);
 							
 							ItemStack sword5 = new ItemStack(Material.DIAMOND_SWORD);
 							ItemMeta swordmeta5 = sword5.getItemMeta();
@@ -378,11 +398,11 @@ public class ShopInteract implements Listener {
 						
 					}else if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ItemUtil.SWORD7)) {
 						event.setCancelled(true);
-						if(player.getInventory().contains(new ItemStack(Material.IRON_INGOT, 50))) {
+						if(player.getInventory().contains(Material.IRON_INGOT, 50)) {
 							
 							int place = BestMaterial(player, Material.IRON_INGOT);
 							
-							player.getInventory().getItem(place).setAmount(player.getInventory().getItem(place).getAmount() -1);
+							player.getInventory().getItem(place).setAmount(player.getInventory().getItem(place).getAmount() -50);
 							
 							ItemStack sword6 = new ItemStack(Material.DIAMOND_SWORD);
 							ItemMeta swordmeta6 = sword6.getItemMeta();
@@ -400,7 +420,7 @@ public class ShopInteract implements Listener {
 						
 					}else if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ItemUtil.SWORD8)) {
 						event.setCancelled(true);
-						if(player.getInventory().contains(new ItemStack(Material.GOLD_NUGGET, 1))) {
+						if(player.getInventory().contains(Material.GOLD_NUGGET, 1)) {
 							
 							int place = BestMaterial(player, Material.GOLD_NUGGET);
 							
@@ -422,11 +442,11 @@ public class ShopInteract implements Listener {
 						
 					}else if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ItemUtil.SWORD9)) {
 						event.setCancelled(true);
-						if(player.getInventory().contains(new ItemStack(Material.GOLD_NUGGET, 15))) {
+						if(player.getInventory().contains(Material.GOLD_NUGGET, 15)) {
 							
 							int place = BestMaterial(player, Material.GOLD_NUGGET);
 							
-							player.getInventory().getItem(place).setAmount(player.getInventory().getItem(place).getAmount() -1);
+							player.getInventory().getItem(place).setAmount(player.getInventory().getItem(place).getAmount() -15);
 							
 							ItemStack sword8 = new ItemStack(Material.DIAMOND_SWORD);
 							ItemMeta swordmeta8 = sword8.getItemMeta();
@@ -444,11 +464,11 @@ public class ShopInteract implements Listener {
 						
 					}else if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ItemUtil.SWORD10)) {
 						event.setCancelled(true);
-						if(player.getInventory().contains(new ItemStack(Material.GOLD_INGOT, 64))) {
+						if(player.getInventory().contains(Material.GOLD_INGOT, 64)) {
 							
 							int place = BestMaterial(player, Material.GOLD_INGOT);
 							
-							player.getInventory().getItem(place).setAmount(player.getInventory().getItem(place).getAmount() -1);
+							player.getInventory().getItem(place).setAmount(player.getInventory().getItem(place).getAmount() -64);
 							
 							ItemStack sword9 = new ItemStack(Material.DIAMOND_SWORD);
 							ItemMeta swordmeta9 = sword9.getItemMeta();
@@ -465,17 +485,19 @@ public class ShopInteract implements Listener {
 						}else 
 							player.sendMessage("Du hast nicht genügent Geld dabei!");
 						
+					}else if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ItemUtil.BACK)) {
+						ShopManager.openShopInv(player);
 					}
 					
-				}else if(event.getInventory() == ShopManager.AxeInv) {
-					
+				}else if(event.getInventory().getName().equalsIgnoreCase("§aÄxte")) {
+					event.setCancelled(true);
 					if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ItemUtil.AXE1)) {
 						event.setCancelled(true);
-						if(player.getInventory().contains(new ItemStack(Material.IRON_NUGGET, 20))) {
+						if(player.getInventory().contains(Material.IRON_NUGGET, 20)) {
 							
 							int place = BestMaterial(player, Material.IRON_NUGGET);
 							
-							player.getInventory().getItem(place).setAmount(player.getInventory().getItem(place).getAmount() -1);
+							player.getInventory().getItem(place).setAmount(player.getInventory().getItem(place).getAmount() -20);
 							
 							ItemStack axe = new ItemStack(Material.DIAMOND_AXE);
 							ItemMeta axemeta = axe.getItemMeta();
@@ -491,11 +513,11 @@ public class ShopInteract implements Listener {
 						
 					}else if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ItemUtil.AXE2)) {
 						event.setCancelled(true);
-						if(player.getInventory().contains(new ItemStack(Material.IRON_NUGGET, 30))) {
+						if(player.getInventory().contains(Material.IRON_NUGGET, 30)) {
 							
 							int place = BestMaterial(player, Material.IRON_NUGGET);
 							
-							player.getInventory().getItem(place).setAmount(player.getInventory().getItem(place).getAmount() -1);
+							player.getInventory().getItem(place).setAmount(player.getInventory().getItem(place).getAmount() -30);
 							
 							ItemStack axe1 = new ItemStack(Material.DIAMOND_AXE);
 							ItemMeta axemeta1 = axe1.getItemMeta();
@@ -511,11 +533,11 @@ public class ShopInteract implements Listener {
 						
 					}else if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ItemUtil.AXE3)) {
 						event.setCancelled(true);
-						if(player.getInventory().contains(new ItemStack(Material.IRON_NUGGET, 40))) {
+						if(player.getInventory().contains(Material.IRON_NUGGET, 40)) {
 							
 							int place = BestMaterial(player, Material.IRON_NUGGET);
 							
-							player.getInventory().getItem(place).setAmount(player.getInventory().getItem(place).getAmount() -1);
+							player.getInventory().getItem(place).setAmount(player.getInventory().getItem(place).getAmount() -40);
 							
 							ItemStack axe2 = new ItemStack(Material.DIAMOND_AXE);
 							ItemMeta axemeta2 = axe2.getItemMeta();
@@ -531,11 +553,11 @@ public class ShopInteract implements Listener {
 						
 					}else if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ItemUtil.AXE4)) {
 						event.setCancelled(true);
-						if(player.getInventory().contains(new ItemStack(Material.IRON_NUGGET, 50))) {
+						if(player.getInventory().contains(Material.IRON_NUGGET, 50)) {
 							
 							int place = BestMaterial(player, Material.IRON_NUGGET);
 							
-							player.getInventory().getItem(place).setAmount(player.getInventory().getItem(place).getAmount() -1);
+							player.getInventory().getItem(place).setAmount(player.getInventory().getItem(place).getAmount() -50);
 							
 							ItemStack axe3 = new ItemStack(Material.DIAMOND_AXE);
 							ItemMeta axemeta3 = axe3.getItemMeta();
@@ -551,11 +573,11 @@ public class ShopInteract implements Listener {
 						
 					}else if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ItemUtil.AXE5)) {
 						event.setCancelled(true);
-						if(player.getInventory().contains(new ItemStack(Material.IRON_NUGGET, 60))) {
+						if(player.getInventory().contains(Material.IRON_NUGGET, 60)) {
 							
 							int place = BestMaterial(player, Material.IRON_NUGGET);
 							
-							player.getInventory().getItem(place).setAmount(player.getInventory().getItem(place).getAmount() -1);
+							player.getInventory().getItem(place).setAmount(player.getInventory().getItem(place).getAmount() -60);
 							
 							ItemStack axe4 = new ItemStack(Material.DIAMOND_AXE);
 							ItemMeta axemeta4 = axe4.getItemMeta();
@@ -571,11 +593,11 @@ public class ShopInteract implements Listener {
 						
 					}else if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ItemUtil.AXE6)) {
 						event.setCancelled(true);
-						if(player.getInventory().contains(new ItemStack(Material.IRON_INGOT, 10))) {
+						if(player.getInventory().contains(Material.IRON_INGOT, 10)) {
 							
 							int place = BestMaterial(player, Material.IRON_INGOT);
 							
-							player.getInventory().getItem(place).setAmount(player.getInventory().getItem(place).getAmount() -1);
+							player.getInventory().getItem(place).setAmount(player.getInventory().getItem(place).getAmount() -10);
 							
 							ItemStack axe5 = new ItemStack(Material.DIAMOND_AXE);
 							ItemMeta axemeta5 = axe5.getItemMeta();
@@ -592,11 +614,11 @@ public class ShopInteract implements Listener {
 						
 					}else if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ItemUtil.AXE7)) {
 						event.setCancelled(true);
-						if(player.getInventory().contains(new ItemStack(Material.IRON_INGOT, 50))) {
+						if(player.getInventory().contains(Material.IRON_INGOT, 50)) {
 							
 							int place = BestMaterial(player, Material.IRON_INGOT);
 							
-							player.getInventory().getItem(place).setAmount(player.getInventory().getItem(place).getAmount() -1);
+							player.getInventory().getItem(place).setAmount(player.getInventory().getItem(place).getAmount() -50);
 							
 							ItemStack axe6 = new ItemStack(Material.DIAMOND_AXE);
 							ItemMeta axemeta6 = axe6.getItemMeta();
@@ -614,7 +636,7 @@ public class ShopInteract implements Listener {
 						
 					}else if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ItemUtil.AXE8)) {
 						event.setCancelled(true);
-						if(player.getInventory().contains(new ItemStack(Material.GOLD_NUGGET, 1))) {
+						if(player.getInventory().contains(Material.GOLD_NUGGET, 1)) {
 							
 							int place = BestMaterial(player, Material.GOLD_NUGGET);
 							
@@ -636,11 +658,11 @@ public class ShopInteract implements Listener {
 						
 					}else if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ItemUtil.AXE9)) {
 						event.setCancelled(true);
-						if(player.getInventory().contains(new ItemStack(Material.GOLD_NUGGET, 15))) {
+						if(player.getInventory().contains(Material.GOLD_NUGGET, 15)) {
 							
-							int place = BestMaterial(player, Material.IRON_NUGGET);
+							int place = BestMaterial(player, Material.GOLD_NUGGET);
 							
-							player.getInventory().getItem(place).setAmount(player.getInventory().getItem(place).getAmount() -1);
+							player.getInventory().getItem(place).setAmount(player.getInventory().getItem(place).getAmount() -15);
 							
 							ItemStack axe8 = new ItemStack(Material.DIAMOND_AXE);
 							ItemMeta axemeta8 = axe8.getItemMeta();
@@ -658,11 +680,11 @@ public class ShopInteract implements Listener {
 						
 					}else if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ItemUtil.AXE10)) {
 						event.setCancelled(true);
-						if(player.getInventory().contains(new ItemStack(Material.GOLD_INGOT, 64))) {
+						if(player.getInventory().contains(Material.GOLD_INGOT, 64)) {
 							
-							int place = BestMaterial(player, Material.IRON_NUGGET);
+							int place = BestMaterial(player, Material.GOLD_INGOT);
 							
-							player.getInventory().getItem(place).setAmount(player.getInventory().getItem(place).getAmount() -1);
+							player.getInventory().getItem(place).setAmount(player.getInventory().getItem(place).getAmount() -64);
 							
 							ItemStack axe9 = new ItemStack(Material.DIAMOND_AXE);
 							ItemMeta axemeta9 = axe9.getItemMeta();
@@ -679,17 +701,19 @@ public class ShopInteract implements Listener {
 						}else 
 							player.sendMessage("Du hast nicht genügent Geld dabei!");
 						
+					}else if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ItemUtil.BACK)) {
+						ShopManager.openShopInv(player);
 					}
 					
-				}else if(event.getInventory() == ShopManager.ShieldInv) {
-					
+				}else if(event.getInventory().getName().equalsIgnoreCase("§aSchilde")) {
+					event.setCancelled(true);
 					if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ItemUtil.SHIELD1)) {
 						event.setCancelled(true);
-						if(player.getInventory().contains(new ItemStack(Material.IRON_NUGGET, 20))) {
+						if(player.getInventory().contains(Material.IRON_NUGGET, 20)) {
 							
 							int place = BestMaterial(player, Material.IRON_NUGGET);
 							
-							player.getInventory().getItem(place).setAmount(player.getInventory().getItem(place).getAmount() -1);
+							player.getInventory().getItem(place).setAmount(player.getInventory().getItem(place).getAmount() -20);
 							
 							ItemStack shield = new ItemStack(Material.SHIELD);
 							ItemMeta shieldmeta = shield.getItemMeta();
@@ -705,11 +729,11 @@ public class ShopInteract implements Listener {
 						
 					}else if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ItemUtil.SHIELD2)) {
 						event.setCancelled(true);
-						if(player.getInventory().contains(new ItemStack(Material.IRON_NUGGET, 30))) {
+						if(player.getInventory().contains(Material.IRON_NUGGET, 30)) {
 							
 							int place = BestMaterial(player, Material.IRON_NUGGET);
 							
-							player.getInventory().getItem(place).setAmount(player.getInventory().getItem(place).getAmount() -1);
+							player.getInventory().getItem(place).setAmount(player.getInventory().getItem(place).getAmount() -30);
 							
 							ItemStack shield1 = new ItemStack(Material.SHIELD);
 							ItemMeta shieldmeta1 = shield1.getItemMeta();
@@ -725,11 +749,11 @@ public class ShopInteract implements Listener {
 						
 					}else if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ItemUtil.SHIELD3)) {
 						event.setCancelled(true);
-						if(player.getInventory().contains(new ItemStack(Material.IRON_NUGGET, 40))) {
+						if(player.getInventory().contains(Material.IRON_NUGGET, 40)) {
 							
 							int place = BestMaterial(player, Material.IRON_NUGGET);
 							
-							player.getInventory().getItem(place).setAmount(player.getInventory().getItem(place).getAmount() -1);
+							player.getInventory().getItem(place).setAmount(player.getInventory().getItem(place).getAmount() -40);
 							
 							ItemStack shield2 = new ItemStack(Material.SHIELD);
 							ItemMeta shieldmeta2 = shield2.getItemMeta();
@@ -745,11 +769,11 @@ public class ShopInteract implements Listener {
 						
 					}else if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ItemUtil.SHIELD4)) {
 						event.setCancelled(true);
-						if(player.getInventory().contains(new ItemStack(Material.IRON_NUGGET, 50))) {
+						if(player.getInventory().contains(Material.IRON_NUGGET, 50)) {
 							
 							int place = BestMaterial(player, Material.IRON_NUGGET);
 							
-							player.getInventory().getItem(place).setAmount(player.getInventory().getItem(place).getAmount() -1);
+							player.getInventory().getItem(place).setAmount(player.getInventory().getItem(place).getAmount() -50);
 							
 							ItemStack shield3 = new ItemStack(Material.SHIELD);
 							ItemMeta shieldmeta3 = shield3.getItemMeta();
@@ -765,11 +789,11 @@ public class ShopInteract implements Listener {
 						
 					}else if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ItemUtil.SHIELD5)) {
 						event.setCancelled(true);
-						if(player.getInventory().contains(new ItemStack(Material.IRON_NUGGET, 60))) {
+						if(player.getInventory().contains(Material.IRON_NUGGET, 60)) {
 							
 							int place = BestMaterial(player, Material.IRON_NUGGET);
 							
-							player.getInventory().getItem(place).setAmount(player.getInventory().getItem(place).getAmount() -1);
+							player.getInventory().getItem(place).setAmount(player.getInventory().getItem(place).getAmount() -60);
 							
 							ItemStack shield4 = new ItemStack(Material.SHIELD);
 							ItemMeta shieldmeta4 = shield4.getItemMeta();
@@ -785,11 +809,11 @@ public class ShopInteract implements Listener {
 						
 					}else if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ItemUtil.SHIELD6)) {
 						event.setCancelled(true);
-						if(player.getInventory().contains(new ItemStack(Material.IRON_INGOT, 10))) {
+						if(player.getInventory().contains(Material.IRON_INGOT, 10)) {
 							
 							int place = BestMaterial(player, Material.IRON_INGOT);
 							
-							player.getInventory().getItem(place).setAmount(player.getInventory().getItem(place).getAmount() -1);
+							player.getInventory().getItem(place).setAmount(player.getInventory().getItem(place).getAmount() -10);
 							
 							ItemStack shield5 = new ItemStack(Material.SHIELD);
 							ItemMeta shieldmeta5 = shield5.getItemMeta();
@@ -806,11 +830,11 @@ public class ShopInteract implements Listener {
 						
 					}else if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ItemUtil.SHIELD7)) {
 						event.setCancelled(true);
-						if(player.getInventory().contains(new ItemStack(Material.IRON_INGOT, 50))) {
+						if(player.getInventory().contains(Material.IRON_INGOT, 50)) {
 							
 							int place = BestMaterial(player, Material.IRON_INGOT);
 							
-							player.getInventory().getItem(place).setAmount(player.getInventory().getItem(place).getAmount() -1);
+							player.getInventory().getItem(place).setAmount(player.getInventory().getItem(place).getAmount() -50);
 							
 							ItemStack shield6 = new ItemStack(Material.SHIELD);
 							ItemMeta shieldmeta6 = shield6.getItemMeta();
@@ -827,7 +851,7 @@ public class ShopInteract implements Listener {
 						
 					}else if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ItemUtil.SHIELD8)) {
 						event.setCancelled(true);
-						if(player.getInventory().contains(new ItemStack(Material.GOLD_NUGGET, 1))) {
+						if(player.getInventory().contains(Material.GOLD_NUGGET, 1)) {
 							
 							int place = BestMaterial(player, Material.GOLD_NUGGET);
 							
@@ -848,11 +872,11 @@ public class ShopInteract implements Listener {
 						
 					}else if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ItemUtil.SHIELD9)) {
 						event.setCancelled(true);
-						if(player.getInventory().contains(new ItemStack(Material.GOLD_NUGGET, 51))) {
+						if(player.getInventory().contains(Material.GOLD_NUGGET, 15)) {
 							
 							int place = BestMaterial(player, Material.GOLD_NUGGET);
 							
-							player.getInventory().getItem(place).setAmount(player.getInventory().getItem(place).getAmount() -1);
+							player.getInventory().getItem(place).setAmount(player.getInventory().getItem(place).getAmount() -15);
 							
 							ItemStack shield8 = new ItemStack(Material.SHIELD);
 							ItemMeta shieldmeta8 = shield8.getItemMeta();
@@ -870,11 +894,11 @@ public class ShopInteract implements Listener {
 						
 					}else if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ItemUtil.SHIELD10)) {
 						event.setCancelled(true);
-						if(player.getInventory().contains(new ItemStack(Material.GOLD_INGOT, 64))) {
+						if(player.getInventory().contains(Material.GOLD_INGOT, 64)) {
 							
 							int place = BestMaterial(player, Material.GOLD_INGOT);
 							
-							player.getInventory().getItem(place).setAmount(player.getInventory().getItem(place).getAmount() -1);
+							player.getInventory().getItem(place).setAmount(player.getInventory().getItem(place).getAmount() -64);
 							
 							ItemStack shield9 = new ItemStack(Material.SHIELD);
 							ItemMeta shieldmeta9 = shield9.getItemMeta();
@@ -891,17 +915,19 @@ public class ShopInteract implements Listener {
 						}else 
 							player.sendMessage("Du hast nicht genügent Geld dabei!");
 						
+					}else if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ItemUtil.BACK)) {
+						ShopManager.openShopInv(player);
 					}
 					
-				}else if(event.getInventory() == ShopManager.ArmorInv) {
-					
+				}else if(event.getInventory().getName().equalsIgnoreCase("§aRüstungen")) {
+					event.setCancelled(true);
 					if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ItemUtil.ARMOR1)) {
 						event.setCancelled(true);
-						if(player.getInventory().contains(new ItemStack(Material.IRON_INGOT, 10))) {
+						if(player.getInventory().contains(Material.IRON_INGOT, 10)) {
 							
 							int place = BestMaterial(player, Material.IRON_INGOT);
 							
-							player.getInventory().getItem(place).setAmount(player.getInventory().getItem(place).getAmount() -1);
+							player.getInventory().getItem(place).setAmount(player.getInventory().getItem(place).getAmount() -10);
 							
 							ItemStack armor = new ItemStack(Material.LEATHER_HELMET);//10 ib
 							ItemMeta armormeta = armor.getItemMeta();
@@ -918,11 +944,11 @@ public class ShopInteract implements Listener {
 						
 					}else if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ItemUtil.ARMOR2)) {
 						event.setCancelled(true);
-						if(player.getInventory().contains(new ItemStack(Material.IRON_INGOT, 50))) {
+						if(player.getInventory().contains(Material.IRON_INGOT, 50)) {
 							
 							int place = BestMaterial(player, Material.IRON_INGOT);
 							
-							player.getInventory().getItem(place).setAmount(player.getInventory().getItem(place).getAmount() -1);
+							player.getInventory().getItem(place).setAmount(player.getInventory().getItem(place).getAmount() -50);
 							
 							ItemStack armor1 = new ItemStack(Material.LEATHER_CHESTPLATE);//50 ib
 							ItemMeta armormeta1 = armor1.getItemMeta();
@@ -939,11 +965,11 @@ public class ShopInteract implements Listener {
 						
 					}else if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ItemUtil.ARMOR3)) {
 						event.setCancelled(true);
-						if(player.getInventory().contains(new ItemStack(Material.IRON_INGOT, 30))) {
+						if(player.getInventory().contains(Material.IRON_INGOT, 30)) {
 							
 							int place = BestMaterial(player, Material.IRON_INGOT);
 							
-							player.getInventory().getItem(place).setAmount(player.getInventory().getItem(place).getAmount() -1);
+							player.getInventory().getItem(place).setAmount(player.getInventory().getItem(place).getAmount() -30);
 							
 							ItemStack armor2 = new ItemStack(Material.LEATHER_LEGGINGS);// 30 ib
 							ItemMeta armormeta2 = armor2.getItemMeta();
@@ -960,11 +986,11 @@ public class ShopInteract implements Listener {
 						
 					}else if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ItemUtil.ARMOR4)) {
 						event.setCancelled(true);
-						if(player.getInventory().contains(new ItemStack(Material.IRON_INGOT, 20))) {
+						if(player.getInventory().contains(Material.IRON_INGOT, 20)) {
 							
 							int place = BestMaterial(player, Material.IRON_INGOT);
 							
-							player.getInventory().getItem(place).setAmount(player.getInventory().getItem(place).getAmount() -1);
+							player.getInventory().getItem(place).setAmount(player.getInventory().getItem(place).getAmount() -20);
 							
 							ItemStack armor3 = new ItemStack(Material.LEATHER_BOOTS);// 20 ib
 							ItemMeta armormeta3 = armor3.getItemMeta();
@@ -981,7 +1007,7 @@ public class ShopInteract implements Listener {
 						
 					}else if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ItemUtil.ARMOR5)) {
 						event.setCancelled(true);
-						if(player.getInventory().contains(new ItemStack(Material.GOLD_INGOT, 1))) {
+						if(player.getInventory().contains(Material.GOLD_INGOT, 1)) {
 							
 							int place = BestMaterial(player, Material.GOLD_INGOT);
 							
@@ -1002,11 +1028,11 @@ public class ShopInteract implements Listener {
 						
 					}else if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ItemUtil.ARMOR6)) {
 						event.setCancelled(true);
-						if(player.getInventory().contains(new ItemStack(Material.GOLD_INGOT, 50))) {
+						if(player.getInventory().contains(Material.GOLD_INGOT, 50)) {
 							
 							int place = BestMaterial(player, Material.GOLD_INGOT);
 							
-							player.getInventory().getItem(place).setAmount(player.getInventory().getItem(place).getAmount() -1);
+							player.getInventory().getItem(place).setAmount(player.getInventory().getItem(place).getAmount() -50);
 							
 							ItemStack armor5 = new ItemStack(Material.IRON_CHESTPLATE);// 50 gb
 							ItemMeta armormeta5 = armor5.getItemMeta();
@@ -1023,11 +1049,11 @@ public class ShopInteract implements Listener {
 						
 					}else if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ItemUtil.ARMOR7)) {
 						event.setCancelled(true);
-						if(player.getInventory().contains(new ItemStack(Material.GOLD_INGOT, 30))) {
+						if(player.getInventory().contains(Material.GOLD_INGOT, 30)) {
 							
 							int place = BestMaterial(player, Material.GOLD_INGOT);
 							
-							player.getInventory().getItem(place).setAmount(player.getInventory().getItem(place).getAmount() -1);
+							player.getInventory().getItem(place).setAmount(player.getInventory().getItem(place).getAmount() -30);
 							
 							ItemStack armor6 = new ItemStack(Material.IRON_LEGGINGS); //30 gb
 							ItemMeta armormeta6 = armor6.getItemMeta();
@@ -1044,11 +1070,11 @@ public class ShopInteract implements Listener {
 						
 					}else if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ItemUtil.ARMOR8)) {
 						event.setCancelled(true);
-						if(player.getInventory().contains(new ItemStack(Material.GOLD_INGOT, 20))) {
+						if(player.getInventory().contains(Material.GOLD_INGOT, 20)) {
 							
 							int place = BestMaterial(player, Material.IRON_INGOT);
 							
-							player.getInventory().getItem(place).setAmount(player.getInventory().getItem(place).getAmount() -1);
+							player.getInventory().getItem(place).setAmount(player.getInventory().getItem(place).getAmount() -20);
 							
 							ItemStack armor7 = new ItemStack(Material.IRON_BOOTS);// 20 gb
 							ItemMeta armormeta7 = armor7.getItemMeta();
@@ -1063,17 +1089,19 @@ public class ShopInteract implements Listener {
 						}else 
 							player.sendMessage("Du hast nicht genügent Geld dabei!");
 						
+					}else if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ItemUtil.BACK)) {
+						ShopManager.openShopInv(player);
 					}
 					
-				}else if(event.getInventory() == ShopManager.SpezialInv) {
-					
+				}else if(event.getInventory().getName().equalsIgnoreCase("§aSpezial")) {
+					event.setCancelled(true);
 					if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ItemUtil.SPEZIAL1)) {
 						event.setCancelled(true);
-						if(player.getInventory().contains(new ItemStack(Material.GOLD_NUGGET, 50))) {
+						if(player.getInventory().contains(Material.GOLD_NUGGET, 50)) {
 							
 							int place = BestMaterial(player, Material.GOLD_NUGGET);
 							
-							player.getInventory().getItem(place).setAmount(player.getInventory().getItem(place).getAmount() -1);
+							player.getInventory().getItem(place).setAmount(player.getInventory().getItem(place).getAmount() -50);
 							
 							ItemStack spezial = new ItemStack(Material.DIAMOND_HELMET);// 50 gn
 							ItemMeta spezialmeta = spezial.getItemMeta();
@@ -1089,11 +1117,11 @@ public class ShopInteract implements Listener {
 						
 					}else if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ItemUtil.SPEZIAL2)) {
 						event.setCancelled(true);
-						if(player.getInventory().contains(new ItemStack(Material.IRON_NUGGET, 64))) {
+						if(player.getInventory().contains(Material.IRON_NUGGET, 64)) {
 							
 							int place = BestMaterial(player, Material.IRON_NUGGET);
 							
-							player.getInventory().getItem(place).setAmount(player.getInventory().getItem(place).getAmount() -1);
+							player.getInventory().getItem(place).setAmount(player.getInventory().getItem(place).getAmount() -64);
 							
 							ItemStack spezial1 = new ItemStack(Material.IRON_INGOT);//64 in
 							ItemMeta spezialmeta1 = spezial1.getItemMeta();
@@ -1108,11 +1136,11 @@ public class ShopInteract implements Listener {
 						
 					}else if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ItemUtil.SPEZIAL3)) {
 						event.setCancelled(true);
-						if(player.getInventory().contains(new ItemStack(Material.IRON_INGOT, 64))) {
+						if(player.getInventory().contains(Material.IRON_INGOT, 64)) {
 							
 							int place = BestMaterial(player, Material.IRON_INGOT);
 							
-							player.getInventory().getItem(place).setAmount(player.getInventory().getItem(place).getAmount() -1);
+							player.getInventory().getItem(place).setAmount(player.getInventory().getItem(place).getAmount() -64);
 							
 							ItemStack spezial2 = new ItemStack(Material.GOLD_NUGGET);//64 ib
 							ItemMeta spezialmeta2 = spezial2.getItemMeta();
@@ -1127,11 +1155,11 @@ public class ShopInteract implements Listener {
 						
 					}else if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ItemUtil.SPEZIAL4)) {
 						event.setCancelled(true);
-						if(player.getInventory().contains(new ItemStack(Material.GOLD_NUGGET, 64))) {
+						if(player.getInventory().contains(Material.GOLD_NUGGET, 64)) {
 							
 							int place = BestMaterial(player, Material.GOLD_NUGGET);
 							
-							player.getInventory().getItem(place).setAmount(player.getInventory().getItem(place).getAmount() -1);
+							player.getInventory().getItem(place).setAmount(player.getInventory().getItem(place).getAmount() -64);
 							
 							ItemStack spezial3 = new ItemStack(Material.GOLD_INGOT);//64 gn
 							ItemMeta spezialmeta3 = spezial3.getItemMeta();
@@ -1144,15 +1172,13 @@ public class ShopInteract implements Listener {
 						}else 
 							player.sendMessage("Du hast nicht genügent Geld dabei!");
 						
+					}else if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(ItemUtil.BACK)) {
+						ShopManager.openShopInv(player);
 					}
 					
 				}
-				
 			}
 			
-		} catch (Exception e) {
-			
-		}
 	}
 	
 	private int BestMaterial(Player player, Material material) {

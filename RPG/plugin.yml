@@ -1,5 +1,5 @@
 name: RPG
-version: 0.1
+version: 0.2
 author: Tempoo50
 main: de.tempoo50.rpg.main.Rpg
 
@@ -19,4 +19,28 @@ commands:
    giant:
       description:
    villager:
+      description:
+   evoker:
+      description:
+   slime:
+      description:
+   vindi:
+      description:
+   creeper:
+      description:
+   blaze:
+      description:
+   wither:
+      description:
+   illi:
+      description:
+   vex:
+      description:
+   stray:
+      description:
+   setspawn:
+      description:
+   setrespawn:
+      description:
+   spawn:
       description:

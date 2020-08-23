@@ -11,11 +11,17 @@ import de.tempoo50.rpg.utils.*;
 
 public class Rpg extends JavaPlugin {
 	
+	private static Rpg inctance;
 	private static Rpg plugin;
+	
+	public static BelohnungsManager belohnungsmanager;
 	
 	public void onEnable() {
 		
+		inctance = this;
 		plugin = this;
+		
+		Rpg.belohnungsmanager = new BelohnungsManager();
 		
 		try {
 			
@@ -25,14 +31,14 @@ public class Rpg extends JavaPlugin {
             loadListener(Bukkit.getPluginManager());
             loadShop();
            
-        }catch (Exception e1){
+        }catch (Exception e1) {
         	
             e1.printStackTrace();
             log("§4Fehler: §cPlugin konnte nicht geladen werden.");
             Bukkit.getPluginManager().disablePlugin(this);
             return;
             
-        }finally{
+        }finally {
         	
             log("§aPlugin geladen.");
             log("§agecodet von Tempoo50.");
@@ -50,6 +56,11 @@ public class Rpg extends JavaPlugin {
 		TablistFile.loadFile();
 		ScoreboardFile.loadFile();
 		SpawnFile.loadSpawn();
+		ChatFile.loadChatSystem();
+		CommandBlockerFile.loadBlocker();
+		MessagesFile.loadMessage();
+		ServerLinkFile.loadFile();
+		FileManagerBelohnung.setDefault();
 		
 	}
 	
@@ -75,6 +86,29 @@ public class Rpg extends JavaPlugin {
 		getCommand("setrespawn").setExecutor(new SetResoawnCommand());
 		getCommand("setspawn").setExecutor(new SetSpawnCommand());
 		getCommand("spawn").setExecutor(new SpawnCommand());
+		getCommand("home").setExecutor(new HomeCommand());
+		getCommand("sethome").setExecutor(new SetHomeCommand());
+		getCommand("delhome").setExecutor(new DelHomeCommand());
+		getCommand("blacklist").setExecutor(new BlacklistCommand());
+		getCommand("tp").setExecutor(new TpCommand());
+		getCommand("msg").setExecutor(new MsgCommand());
+		getCommand("r").setExecutor(new RCommand());
+		getCommand("cc").setExecutor(new ChatClearCommand());
+		getCommand("fly").setExecutor(new FlyCommand());
+		getCommand("ec").setExecutor(new EcCommand());
+		getCommand("day").setExecutor(new DayCommand());
+		getCommand("night").setExecutor(new NightCommand());
+		getCommand("rundruf").setExecutor(new BroadcastCommand());
+		getCommand("twitter").setExecutor(new TwitterCommand());
+		getCommand("forum").setExecutor(new ForumCommand());
+		getCommand("web").setExecutor(new WebCommand());
+		getCommand("vote").setExecutor(new VoteCommand());
+		getCommand("ts").setExecutor(new TsCommand());
+		getCommand("insta").setExecutor(new InstaCommand());
+		getCommand("shop").setExecutor(new ShopCommand());
+		getCommand("yt").setExecutor(new YtCommand());
+		getCommand("fb").setExecutor(new FbCommand());
+		getCommand("belohnung").setExecutor(new BelohnungsCommand());
 		
 	}
 	
@@ -107,6 +141,8 @@ public class Rpg extends JavaPlugin {
 		pm.registerEvents(new PlayerJoin(), this);
 		pm.registerEvents(new DeathListener(), this);
 		pm.registerEvents(new ChatListener(this), this);
+		pm.registerEvents(new BlacklistCommand(), this);
+		pm.registerEvents(new SignListener(), this);
 		
 	}
 	
@@ -124,6 +160,7 @@ public class Rpg extends JavaPlugin {
 	
 	public void loadTimer() {
 		
+		new RunUtil(this).startScoreboard();
 		new RunUtil(this).startBroadcaster();
 		
 	}
@@ -132,6 +169,10 @@ public class Rpg extends JavaPlugin {
 		return plugin;
 		
     }
+	
+	public static Rpg getInctance() {
+		return inctance;
+	}
 	
 	   public static void log(String msg){
 	        Bukkit.getConsoleSender().sendMessage(msg);

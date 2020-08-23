@@ -103,11 +103,20 @@ public class PermissionFile {
 		config.addDefault("Chat.9", "tab.krieger");
 		config.addDefault("Chat.10", "tab.jager");
 		config.addDefault("Chat.ChatColor", "chat.color");
+		config.addDefault("Chat.Block", "chat.block");
+		config.addDefault("Chat.Clear", "chat.clear");
 		//Clan
 		
 		//Krieger
 		
 		//Jäger
+		
+		//Team
+		config.addDefault("Tp.Player", "rpg.tp");
+		config.addDefault("Sign.Color", "rpg.color");
+		config.addDefault("Time.Day", "rpg.day");
+		config.addDefault("Time.Night", "rpg.night");
+		config.addDefault("Rundruf", "rpg.rundruf");
 		
 		config.options().copyDefaults(true);
 		

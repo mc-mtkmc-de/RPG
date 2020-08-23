@@ -8,7 +8,7 @@ import org.bukkit.configuration.file.YamlConfiguration;
 public class ChatFile {
 public static void loadChatSystem() {
 		
-		File file = new File("plugins//ServerSystem//Chat//ChatSystem.yml");
+		File file = new File("plugins//RPG//Chat//ChatSystem.yml");
 		YamlConfiguration config = YamlConfiguration.loadConfiguration(file);
 		
 		config.options().header("Here you can set up your chat system");

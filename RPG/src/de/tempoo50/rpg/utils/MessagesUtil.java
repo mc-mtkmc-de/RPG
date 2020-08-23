@@ -15,5 +15,6 @@ public class MessagesUtil {
 	public static final String NOPERM = PREFIX + ChatColor.translateAlternateColorCodes('&', (String) config.get("Noperm"));
 	public static final String NOCMD = PREFIX + ChatColor.translateAlternateColorCodes('&', (String) config.get("NoCMD"));
 	public static final String BLOCK = PREFIX + ChatColor.translateAlternateColorCodes('&', (String) config.get("Block"));
-
+	
+	
 }

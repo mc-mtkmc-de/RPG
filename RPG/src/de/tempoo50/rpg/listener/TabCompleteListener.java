@@ -12,7 +12,7 @@ public class TabCompleteListener implements Listener {
 	@EventHandler
 	public void onPlayerJoin(final TabCompleteEvent event) {
 		
-		File file = new File("plugins//ServerSystem//Blocker.yml");
+		File file = new File("plugins//RPG//Blocker.yml");
 		YamlConfiguration config = YamlConfiguration.loadConfiguration(file);
 		
 		String cmd = event.getBuffer();

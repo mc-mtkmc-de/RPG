@@ -44,3 +44,45 @@ commands:
       description:
    spawn:
       description:
+   home:
+      description:
+   sethome:
+      description:
+   delhome:
+      description:
+   blacklist:
+      description:
+   tp:
+      description:
+   msg:
+      description:
+   r:
+      description:
+   cc:
+      description:
+   fly:
+      description:
+   day:
+      description:
+   night:
+      description:
+   runfruf:
+      description:
+   discord:
+      description:
+   forum:
+      description:
+   ts:
+      description:
+   web:
+      description:
+   shop:
+      description:
+   vote:
+      description:
+   yt:
+      description:
+   insta:
+      description:
+   twitter:
+      description:

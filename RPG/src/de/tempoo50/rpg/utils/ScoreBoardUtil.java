@@ -36,7 +36,7 @@ public class ScoreBoardUtil {
 		ScoreboardScore s03 = new ScoreboardScore(board, obj, "§b" + Bukkit.getServerName());
 		ScoreboardScore s04 = new ScoreboardScore(board, obj, "§4");
 		ScoreboardScore s05 = new ScoreboardScore(board, obj, "§6Klasse");
-		ScoreboardScore s06 = new ScoreboardScore(board, obj, "§b" + player.getName());
+		ScoreboardScore s06 = new ScoreboardScore(board, obj, "§b" + player.getDisplayName());
 		ScoreboardScore s07 = new ScoreboardScore(board, obj, "§1");
 		ScoreboardScore s08 = new ScoreboardScore(board, obj, "§6Online");
 		ScoreboardScore s09 = new ScoreboardScore(board, obj, "§d§l" + Bukkit.getOnlinePlayers().size() + "§b§l/§c§l" + Bukkit.getMaxPlayers());
@@ -103,7 +103,7 @@ public class ScoreBoardUtil {
 		ScoreboardScore s03 = new ScoreboardScore(board, obj, "§b" + Bukkit.getServerName());
 		ScoreboardScore s04 = new ScoreboardScore(board, obj, "§4");
 		ScoreboardScore s05 = new ScoreboardScore(board, obj, "§6Klasse");
-		ScoreboardScore s06 = new ScoreboardScore(board, obj, "§b" + player.getName());
+		ScoreboardScore s06 = new ScoreboardScore(board, obj, "§b" + player.getDisplayName());
 		ScoreboardScore s07 = new ScoreboardScore(board, obj, "§1");
 		ScoreboardScore s08 = new ScoreboardScore(board, obj, "§6Online");
 		ScoreboardScore s09 = new ScoreboardScore(board, obj, "§d§l" + Bukkit.getOnlinePlayers().size() + "§b§l/§c§l" + Bukkit.getMaxPlayers());

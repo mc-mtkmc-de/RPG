@@ -25,11 +25,11 @@ public class Rpg extends JavaPlugin {
 		
 		try {
 			
-			loadTimer();
-            loadFile();
+			loadFile();
             loadCommands();
             loadListener(Bukkit.getPluginManager());
             loadShop();
+            loadTimer();
            
         }catch (Exception e1) {
         	
@@ -61,6 +61,11 @@ public class Rpg extends JavaPlugin {
 		MessagesFile.loadMessage();
 		ServerLinkFile.loadFile();
 		FileManagerBelohnung.setDefault();
+		LiveFile.loadFile();
+		ClanFile.loadFile();
+		ClanPlayerData.savePlayerFile();
+		ClanData.saveClanFile();
+		Broadcaster.createDefaults();
 		
 	}
 	
@@ -109,6 +114,13 @@ public class Rpg extends JavaPlugin {
 		getCommand("yt").setExecutor(new YtCommand());
 		getCommand("fb").setExecutor(new FbCommand());
 		getCommand("belohnung").setExecutor(new BelohnungsCommand());
+		getCommand("live").setExecutor(new LiveCommand());
+		getCommand("clan").setExecutor(new ClanCommand());
+		getCommand("cm").setExecutor(new ClanMessage());
+		getCommand("clan").setTabCompleter(new TabCompleteClan());
+		getCommand("heal").setExecutor(new HealCommand());
+		getCommand("support").setExecutor(new SupportCommand());
+		getCommand("cblock").setExecutor(new ChatBlockCommand());
 		
 	}
 	
@@ -143,6 +155,11 @@ public class Rpg extends JavaPlugin {
 		pm.registerEvents(new ChatListener(this), this);
 		pm.registerEvents(new BlacklistCommand(), this);
 		pm.registerEvents(new SignListener(), this);
+		pm.registerEvents(new ClanDeath(), this);
+		pm.registerEvents(new ClanJoin(), this);
+		pm.registerEvents(new ClanQuit(), this);
+		pm.registerEvents(new ChatSupportListener(), this);
+		pm.registerEvents(new ChatBlockListener(), this);
 		
 	}
 	

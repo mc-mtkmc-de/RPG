@@ -14,7 +14,7 @@ public class FileManagerBelohnung {
 	
 	public static File getConfigFile() {
 		
-		return new File(Rpg.getInctance().getDataFolder(), "Belohnunf//config.yml");
+		return new File(Rpg.getInctance().getDataFolder(), "Belohnung//config.yml");
 		
 	}
 	
@@ -24,7 +24,7 @@ public class FileManagerBelohnung {
 		config.options().copyDefaults(true);
 		config.addDefault("prefix", "TagesBelohnung");
 		List<String> commands = new ArrayList<String>();
-		commands.add("give player IRON_NUGGET 5");
+		commands.add("give player LEATHER_CHESTPLATE 1");
 		commands.add("give player COOKED_BEEF 64");
 		config.addDefault("belohnungsCommand", commands);
 		try {
@@ -33,7 +33,7 @@ public class FileManagerBelohnung {
 		
 			e.printStackTrace();
 		}
-		
+
 	}
 
 }

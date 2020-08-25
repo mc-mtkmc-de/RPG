@@ -28,7 +28,7 @@ public class Broadcaster {
 		
 	}
 	
-	private void createDefaults() {
+	public static void createDefaults() {
 		
 		if(config.contains(ROOT)) return;
 		List<String> defaults = new ArrayList<>();

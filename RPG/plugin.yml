@@ -1,5 +1,5 @@
 name: RPG
-version: 0.2
+version: 0.3
 author: Tempoo50
 main: de.tempoo50.rpg.main.Rpg
 
@@ -62,11 +62,13 @@ commands:
       description:
    fly:
       description:
+   ec:
+      description:
    day:
       description:
    night:
       description:
-   runfruf:
+   rundruf:
       description:
    discord:
       description:
@@ -85,4 +87,20 @@ commands:
    insta:
       description:
    twitter:
+      description:
+   fb:
+      description:
+   belohnung:
+      description:
+   live:
+      description:
+   clan:
+      description:
+   cm:
+      description:
+   heal:
+      description:
+   support:
+      description:
+   cblock:
       description:

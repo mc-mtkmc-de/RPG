@@ -11,6 +11,7 @@ public class PermissionFile {
 		
 		File file = new File("plugins//RPG//Permission.yml");
 		YamlConfiguration config = YamlConfiguration.loadConfiguration(file);
+		
 		//MobSpawn
 		config.addDefault("Spawn.Zombie", "rpg.zombie");
 		config.addDefault("Spawn.Witch", "rpg.witch");
@@ -106,7 +107,8 @@ public class PermissionFile {
 		config.addDefault("Chat.Block", "chat.block");
 		config.addDefault("Chat.Clear", "chat.clear");
 		//Clan
-		
+		config.addDefault("Clan.Del", "clan.delete.admin");
+		config.addDefault("Clan.Create", "clan.create");
 		//Krieger
 		
 		//Jäger
@@ -117,6 +119,8 @@ public class PermissionFile {
 		config.addDefault("Time.Day", "rpg.day");
 		config.addDefault("Time.Night", "rpg.night");
 		config.addDefault("Rundruf", "rpg.rundruf");
+		config.addDefault("Heal", "rpg.heal");
+		config.addDefault("Support.Chat", "rpg.support");
 		
 		config.options().copyDefaults(true);
 		

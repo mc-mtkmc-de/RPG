@@ -12,6 +12,8 @@ import org.bukkit.event.player.AsyncPlayerChatEvent;
 
 import de.tempoo50.rpg.main.Rpg;
 import de.tempoo50.rpg.utils.MessagesUtil;
+import de.tempoo50.rpg.utils.ClanManager;
+import de.tempoo50.rpg.utils.ClanPlayer;
 import net.md_5.bungee.api.ChatColor;
 
 
@@ -43,65 +45,126 @@ public class ChatListener implements Listener {
 	    		uppercaseLetter++;
 	    	}
 	    }
-	    
-	    if(player.hasPermission((String) per.get("Chat.1"))) {
+	    if(!(ClanPlayer.getClan(player) == null)) {
+		    if(player.hasPermission((String) per.get("Chat.1"))) {
+				String ms = (String) config.get("Chat.1");
+				ms = ms.replace("/n", "\n").replace("[Player]", player.getName()).replace("message", msg).replace("[Prefix]", (String) config.get("Prefix.1")).replace("[Clan]", " §8[§e" + ClanManager.getPrefix(ClanPlayer.getClan(player)) + "§8] ");
+				event.setFormat(ChatColor.translateAlternateColorCodes('&', ms));
+		    
+		    }else if(player.hasPermission((String) per.get("Chat.2"))) {
+				String ms = (String) config.get("Chat.2");
+				ms = ms.replace("/n", "\n").replace("[Player]", player.getName()).replace("message", msg).replace("[Prefix]", (String) config.get("Prefix.2")).replace("[Clan]", " §8[§e" + ClanManager.getPrefix(ClanPlayer.getClan(player)) + "§8] ");
+				event.setFormat(ChatColor.translateAlternateColorCodes('&', ms));
+		    
+		    }else if(player.hasPermission((String) per.get("Chat.3"))) {
+				String ms = (String) config.get("Chat.3");
+				ms = ms.replace("/n", "\n").replace("[Player]", player.getName()).replace("message", msg).replace("[Prefix]", (String) config.get("Prefix.3")).replace("[Clan]", " §8[§e" + ClanManager.getPrefix(ClanPlayer.getClan(player)) + "§8] ");
+				event.setFormat(ChatColor.translateAlternateColorCodes('&', ms));
+		    
+		    }else if(player.hasPermission((String) per.get("Chat.4"))) {
+				String ms = (String) config.get("Chat.4");
+				ms = ms.replace("/n", "\n").replace("[Player]", player.getName()).replace("message", msg).replace("[Prefix]", (String) config.get("Prefix.4")).replace("[Clan]", " §8[§e" + ClanManager.getPrefix(ClanPlayer.getClan(player)) + "§8] ");
+				event.setFormat(ChatColor.translateAlternateColorCodes('&', ms));
+		    
+		    }else if(player.hasPermission((String) per.get("Chat.5"))) {
+				String ms = (String) config.get("Chat.5");
+				ms = ms.replace("/n", "\n").replace("[Player]", player.getName()).replace("message", msg).replace("[Prefix]", (String) config.get("Prefix.5")).replace("[Clan]", " §8[§e" + ClanManager.getPrefix(ClanPlayer.getClan(player)) + "§8] ");
+				event.setFormat(ChatColor.translateAlternateColorCodes('&', ms));
+		   
+		    }else if(player.hasPermission((String) per.get("Chat.6"))) {
+				String ms = (String) config.get("Chat.6");
+				ms = ms.replace("/n", "\n").replace("[Player]", player.getName()).replace("message", msg).replace("[Prefix]", (String) config.get("Prefix.6")).replace("[Clan]", " §8[§e" + ClanManager.getPrefix(ClanPlayer.getClan(player)) + "§8] ");
+				event.setFormat(ChatColor.translateAlternateColorCodes('&', ms));
+		    
+		    }else if(player.hasPermission((String) per.get("Chat.7"))) {
+				String ms = (String) config.get("Chat.7");
+				ms = ms.replace("/n", "\n").replace("[Player]", player.getName()).replace("message", msg).replace("[Prefix]", (String) config.get("Prefix.7")).replace("[Clan]", " §8[§e" + ClanManager.getPrefix(ClanPlayer.getClan(player)) + "§8] ");
+				event.setFormat(ChatColor.translateAlternateColorCodes('&', ms));
+		    
+		    }else if(player.hasPermission((String) per.get("Chat.8"))) {
+				String ms = (String) config.get("Chat.8");
+				ms = ms.replace("/n", "\n").replace("[Player]", player.getName()).replace("message", msg).replace("[Prefix]", (String) config.get("Prefix.8")).replace("[Clan]", " §8[§e" + ClanManager.getPrefix(ClanPlayer.getClan(player)) + "§8] ");
+				event.setFormat(ChatColor.translateAlternateColorCodes('&', ms));
+		    
+		    }else if(player.hasPermission((String) per.get("Chat.9"))) {
+				String ms = (String) config.get("Chat.9");
+				ms = ms.replace("/n", "\n").replace("[Player]", player.getName()).replace("message", msg).replace("[Prefix]", (String) config.get("Prefix.9")).replace("[Clan]", " §8[§e" + ClanManager.getPrefix(ClanPlayer.getClan(player)) + "§8] ");
+				event.setFormat(ChatColor.translateAlternateColorCodes('&', ms));
+		    
+		    }else if(player.hasPermission((String) per.get("Chat.10"))) {
+				String ms = (String) config.get("Chat.10");
+				ms = ms.replace("/n", "\n").replace("[Player]", player.getName()).replace("message", msg).replace("[Prefix]", (String) config.get("Prefix.10")).replace("[Clan]", " §8[§e" + ClanManager.getPrefix(ClanPlayer.getClan(player)) + "§8] ");
+				event.setFormat(ChatColor.translateAlternateColorCodes('&', ms));
+		    
+		    }else if(player.hasPermission((String) per.get("Chat.Color"))) {
+				String ms = (String) config.get("Chat.11");
+				ms = ms.replace("/n", "\n").replace("[Player]", player.getName()).replace("message", msg).replace("[Prefix]", (String) config.get("Prefix.11")).replace("[Clan]", " §8[§e" + ClanManager.getPrefix(ClanPlayer.getClan(player)) + "§8] "); 
+	            event.setFormat(ChatColor.translateAlternateColorCodes('&' , ms));
+	        
+		    }else {
+				String ms = (String) config.get("Chat.12");
+				ms = ms.replace("/n", "\n").replace("[Player]", player.getName()).replace("message", msg).replace("[Prefix]", (String) config.get("Prefix.11")).replace("[Clan]", " §8[§e" + ClanManager.getPrefix(ClanPlayer.getClan(player)) + "§8] ");
+				event.setFormat(ms);
+		    }
+		    
+	    }else if(player.hasPermission((String) per.get("Chat.1"))) {
 			String ms = (String) config.get("Chat.1");
-			ms = ms.replace("/n", "\n").replace("[Player]", player.getName()).replace("message", msg).replace("[Prefix]", (String) config.get("Prefix.1"));
+			ms = ms.replace("/n", "\n").replace("[Player]", player.getName()).replace("message", msg).replace("[Prefix]", (String) config.get("Prefix.1")).replace("[Clan]", " ");
 			event.setFormat(ChatColor.translateAlternateColorCodes('&', ms));
 	    
 	    }else if(player.hasPermission((String) per.get("Chat.2"))) {
 			String ms = (String) config.get("Chat.2");
-			ms = ms.replace("/n", "\n").replace("[Player]", player.getName()).replace("message", msg).replace("[Prefix]", (String) config.get("Prefix.2"));
+			ms = ms.replace("/n", "\n").replace("[Player]", player.getName()).replace("message", msg).replace("[Prefix]", (String) config.get("Prefix.2")).replace("[Clan]", " ");
 			event.setFormat(ChatColor.translateAlternateColorCodes('&', ms));
 	    
 	    }else if(player.hasPermission((String) per.get("Chat.3"))) {
 			String ms = (String) config.get("Chat.3");
-			ms = ms.replace("/n", "\n").replace("[Player]", player.getName()).replace("message", msg).replace("[Prefix]", (String) config.get("Prefix.3"));
+			ms = ms.replace("/n", "\n").replace("[Player]", player.getName()).replace("message", msg).replace("[Prefix]", (String) config.get("Prefix.3")).replace("[Clan]", " ");
 			event.setFormat(ChatColor.translateAlternateColorCodes('&', ms));
 	    
 	    }else if(player.hasPermission((String) per.get("Chat.4"))) {
 			String ms = (String) config.get("Chat.4");
-			ms = ms.replace("/n", "\n").replace("[Player]", player.getName()).replace("message", msg).replace("[Prefix]", (String) config.get("Prefix.4"));
+			ms = ms.replace("/n", "\n").replace("[Player]", player.getName()).replace("message", msg).replace("[Prefix]", (String) config.get("Prefix.4")).replace("[Clan]", " ");
 			event.setFormat(ChatColor.translateAlternateColorCodes('&', ms));
 	    
 	    }else if(player.hasPermission((String) per.get("Chat.5"))) {
 			String ms = (String) config.get("Chat.5");
-			ms = ms.replace("/n", "\n").replace("[Player]", player.getName()).replace("message", msg).replace("[Prefix]", (String) config.get("Prefix.5"));
+			ms = ms.replace("/n", "\n").replace("[Player]", player.getName()).replace("message", msg).replace("[Prefix]", (String) config.get("Prefix.5")).replace("[Clan]", " ");
 			event.setFormat(ChatColor.translateAlternateColorCodes('&', ms));
 	   
 	    }else if(player.hasPermission((String) per.get("Chat.6"))) {
 			String ms = (String) config.get("Chat.6");
-			ms = ms.replace("/n", "\n").replace("[Player]", player.getName()).replace("message", msg).replace("[Prefix]", (String) config.get("Prefix.6"));
+			ms = ms.replace("/n", "\n").replace("[Player]", player.getName()).replace("message", msg).replace("[Prefix]", (String) config.get("Prefix.6")).replace("[Clan]", " ");
 			event.setFormat(ChatColor.translateAlternateColorCodes('&', ms));
 	    
 	    }else if(player.hasPermission((String) per.get("Chat.7"))) {
 			String ms = (String) config.get("Chat.7");
-			ms = ms.replace("/n", "\n").replace("[Player]", player.getName()).replace("message", msg).replace("[Prefix]", (String) config.get("Prefix.7"));
+			ms = ms.replace("/n", "\n").replace("[Player]", player.getName()).replace("message", msg).replace("[Prefix]", (String) config.get("Prefix.7")).replace("[Clan]", " ");
 			event.setFormat(ChatColor.translateAlternateColorCodes('&', ms));
 	    
 	    }else if(player.hasPermission((String) per.get("Chat.8"))) {
 			String ms = (String) config.get("Chat.8");
-			ms = ms.replace("/n", "\n").replace("[Player]", player.getName()).replace("message", msg).replace("[Prefix]", (String) config.get("Prefix.8"));
+			ms = ms.replace("/n", "\n").replace("[Player]", player.getName()).replace("message", msg).replace("[Prefix]", (String) config.get("Prefix.8")).replace("[Clan]", " ");
 			event.setFormat(ChatColor.translateAlternateColorCodes('&', ms));
 	    
 	    }else if(player.hasPermission((String) per.get("Chat.9"))) {
 			String ms = (String) config.get("Chat.9");
-			ms = ms.replace("/n", "\n").replace("[Player]", player.getName()).replace("message", msg).replace("[Prefix]", (String) config.get("Prefix.9"));
+			ms = ms.replace("/n", "\n").replace("[Player]", player.getName()).replace("message", msg).replace("[Prefix]", (String) config.get("Prefix.9")).replace("[Clan]", " ");
 			event.setFormat(ChatColor.translateAlternateColorCodes('&', ms));
 	    
 	    }else if(player.hasPermission((String) per.get("Chat.10"))) {
 			String ms = (String) config.get("Chat.10");
-			ms = ms.replace("/n", "\n").replace("[Player]", player.getName()).replace("message", msg).replace("[Prefix]", (String) config.get("Prefix.10"));
+			ms = ms.replace("/n", "\n").replace("[Player]", player.getName()).replace("message", msg).replace("[Prefix]", (String) config.get("Prefix.10")).replace("[Clan]", " ");
 			event.setFormat(ChatColor.translateAlternateColorCodes('&', ms));
 	    
 	    }else if(player.hasPermission((String) per.get("Chat.Color"))) {
 			String ms = (String) config.get("Chat.11");
-			ms = ms.replace("/n", "\n").replace("[Player]", player.getName()).replace("message", msg).replace("[Prefix]", (String) config.get("Prefix.11")); 
+			ms = ms.replace("/n", "\n").replace("[Player]", player.getName()).replace("message", msg).replace("[Prefix]", (String) config.get("Prefix.11")).replace("[Clan]", " "); 
             event.setFormat(ChatColor.translateAlternateColorCodes('&' , ms));
         
 	    }else {
 			String ms = (String) config.get("Chat.12");
-			ms = ms.replace("/n", "\n").replace("[Player]", player.getName()).replace("message", msg).replace("[Prefix]", (String) config.get("Prefix.11"));
+			ms = ms.replace("/n", "\n").replace("[Player]", player.getName()).replace("message", msg).replace("[Prefix]", (String) config.get("Prefix.11")).replace("[Clan]", " ");
 			event.setFormat(ms);
 	    }
 	     

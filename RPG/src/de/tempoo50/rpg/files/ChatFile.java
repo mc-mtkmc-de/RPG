@@ -12,18 +12,18 @@ public static void loadChatSystem() {
 		YamlConfiguration config = YamlConfiguration.loadConfiguration(file);
 		
 		config.options().header("Here you can set up your chat system");
-		config.addDefault("Chat.1", "/n[Prefix][Player]§7: §amessage /n ");
-		config.addDefault("Chat.2", "/n[Prefix][Player]§7: §amessage /n ");
-		config.addDefault("Chat.3", "/n[Prefix][Player]§7: §amessage /n ");
-		config.addDefault("Chat.4", "/n[Prefix][Player]§7: §amessage /n ");
-		config.addDefault("Chat.5", "/n[Prefix][Player]§7: §amessage /n ");
-		config.addDefault("Chat.6", "/n[Prefix][Player]§7: §amessage /n ");
-		config.addDefault("Chat.7", "/n[Prefix][Player]§7: §amessage /n ");
-		config.addDefault("Chat.8", "/n[Prefix][Player]§7: §amessage /n ");
-		config.addDefault("Chat.9", "[Prefix][Player]§7: §6message");
-		config.addDefault("Chat.10", "[Prefix][Player]§7: §6message");
-		config.addDefault("Chat.11", "[Prefix][Player]§7: &6message");
-		config.addDefault("Chat.12", "[Prefix][Player]§7: message");
+		config.addDefault("Chat.1", "/n[Prefix][Player][Clan]§7: §amessage /n ");
+		config.addDefault("Chat.2", "/n[Prefix][Player][Clan]§7: §amessage /n ");
+		config.addDefault("Chat.3", "/n[Prefix][Player][Clan]§7: §amessage /n ");
+		config.addDefault("Chat.4", "/n[Prefix][Player][Clan]§7: §amessage /n ");
+		config.addDefault("Chat.5", "/n[Prefix][Player][Clan]§7: §amessage /n ");
+		config.addDefault("Chat.6", "/n[Prefix][Player][Clan]§7: §amessage /n ");
+		config.addDefault("Chat.7", "/n[Prefix][Player][Clan]§7: §amessage /n ");
+		config.addDefault("Chat.8", "/n[Prefix][Player][Clan]§7: §amessage /n ");
+		config.addDefault("Chat.9", "[Prefix][Player][Clan]§7: §6message");
+		config.addDefault("Chat.10", "[Prefix][Player][Clan]§7: §6message");
+		config.addDefault("Chat.11", "[Prefix][Player][Clan]§7: &6message");
+		config.addDefault("Chat.12", "[Prefix][Player][Clan]§7: message");
 
 		config.addDefault("Prefix.1", "&a[Admin]");
 		config.addDefault("Prefix.2", "§b[Dev]");
